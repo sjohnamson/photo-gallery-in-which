@@ -1,18 +1,8 @@
 import { useState } from "react"
-import axios from "axios"
 
-function GalleryItem({ galleryItem, fetchImages }) {
+function GalleryItem({ galleryItem, addLike }) {
     console.log('galleryItem in GalleryItem', galleryItem)
-    const addLike = () => {
-        axios.put(`/gallery/${galleryItem.id}`)
-        .then((response) => {
-            console.log('Llike added: ', galleryItem.id);
-            fetchImages();
-        })
-        .catch((error) => {
-            console.log('Error in DELETE/ students', error)
-        })
-    }
+
 
     // toggles between the image and the description
     const [itemDisplay, setItemDisplay] = useState(true)
@@ -28,8 +18,8 @@ function GalleryItem({ galleryItem, fetchImages }) {
                     <div>{galleryItem.description}</div>}
             </div>
             <div>
-                <button onClick={addLike}>Like</button>
-                <span>likes:</span>
+                <button onClick={() => addLike(galleryItem)}>Like</button>
+                <span>likes: {galleryItem.likes}</span>
             </div>
         </>
     )
