@@ -1,9 +1,8 @@
 import { useState } from "react"
 
-function GalleryItem({ galleryItem }) {
+function GalleryItem({ galleryItem, addLike }) {
     console.log('galleryItem in GalleryItem', galleryItem)
-    const addLike = () => {
-    }
+
 
     // toggles between the image and the description
     const [itemDisplay, setItemDisplay] = useState(true)
@@ -19,8 +18,8 @@ function GalleryItem({ galleryItem }) {
                     <div>{galleryItem.description}</div>}
             </div>
             <div>
-                <button onClick={addLike}>Like</button>
-                <span>likes:</span>
+                <button onClick={() => addLike(galleryItem)}>Like</button>
+                <span>likes: {galleryItem.likes}</span>
             </div>
         </>
     )
