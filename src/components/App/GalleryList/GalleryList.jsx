@@ -1,15 +1,16 @@
 
 import GalleryItem from '../GalleryItem/GalleryItem';
 
-function GalleryList({ imageGallery }) {
+function GalleryList({ imageGallery, fetchImages }) {
     
     return (
         <div>
             {/* loops over the imageGallery and turns each into a galleryItem */}
             {imageGallery?.map((image) => (
                 <GalleryItem 
-                key={image.id}
-                galleryItem={image} />
+                id={image.id}
+                galleryItem={image} 
+                fetchImages={fetchImages}/>
             ))}
         </div>
     )
