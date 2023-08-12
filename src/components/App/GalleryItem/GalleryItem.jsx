@@ -1,11 +1,28 @@
-
+import { useState } from "react"
 
 function GalleryItem({ galleryItem }) {
     console.log('galleryItem in GalleryItem', galleryItem)
-    return (<></>
-        // <div key={galleryItem.id}>
-        //     <div>{galleryItem.path}</div>
-        // </div>
+    const addLike = () => {
+    }
+
+    // toggles between the image and the description
+    const [itemDisplay, setItemDisplay] = useState(true)
+
+    return (
+        <>
+            <div onClick={() => {
+                setItemDisplay(!itemDisplay)
+            }}>
+                {itemDisplay ?
+                    <img src={galleryItem.path} />
+                    :
+                    <div>{galleryItem.description}</div>}
+            </div>
+            <div>
+                <button onClick={addLike}>Like</button>
+                <span>likes:</span>
+            </div>
+        </>
     )
 }
 
