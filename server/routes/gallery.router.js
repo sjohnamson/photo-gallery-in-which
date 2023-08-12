@@ -22,15 +22,15 @@ router
     .post('/', (req, res) => {
         const [path, description] = [req.body.path, req.body.description];
         const sqlText = `INSERT INTO images ("path", "description") VALUES ($1, $2);`
-        
+
         pool
-        .query(sqlText, [path, description])
-        .then((result) => {
-            res.sendStatus(201);
-        })
-        .catch((error) => {
-            res.sendStatus(500);
-        })
+            .query(sqlText, [path, description])
+            .then((result) => {
+                res.sendStatus(201);
+            })
+            .catch((error) => {
+                res.sendStatus(500);
+            })
     }); // END POST Route
 
 // PUT Route
@@ -50,5 +50,23 @@ router
                 res.sendStatus(500)
             })
     }); // END PUT Route
+
+// DELETE Route
+router
+    .delete('/delete/:id', (req, res) => {
+        console.log('req.params.id in delete: ', req.params.id);
+        let imageId = req.params.id;
+        let sqlText = `DELETE FROM images WHERE id=$1;`
+
+
+        pool.query(sqlText, [imageId])
+            .then((result) => {
+                res.sendStatus(200)
+            })
+            .catch((error) => {
+                console.log(`Error making database query ${sqlText}`, error);
+                res.sendStatus(500)
+            })
+    }); // END DELETE Route
 
 module.exports = router;
