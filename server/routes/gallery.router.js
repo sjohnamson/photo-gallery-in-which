@@ -6,13 +6,18 @@ const galleryItems = require('../modules/gallery.data');
 
 // PUT Route
 router.put('/like/:id', (req, res) => {
-    console.log(req.params);
-    const galleryId = req.params.id;
-    for(const galleryItem of galleryItems) {
-        if(galleryItem.id == galleryId) {
-            galleryItem.likes += 1;
-        }
-    }
+    console.log('req.params in put: ', req.params);
+const sqlText = `UPDATE images SET likes=lilkes + 1 WHERE id=$1;`
+const value = req.params;
+
+
+
+    // const galleryId = req.params.id;
+    // for(const galleryItem of galleryItems) {
+    //     if(galleryItem.id == galleryId) {
+    //         galleryItem.likes += 1;
+    //     }
+    // }
     res.sendStatus(200);
 }); // END PUT Route
 

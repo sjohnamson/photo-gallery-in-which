@@ -1,8 +1,17 @@
 import { useState } from "react"
+import axios from "axios"
 
-function GalleryItem({ galleryItem }) {
+function GalleryItem({ galleryItem, fetchImages }) {
     console.log('galleryItem in GalleryItem', galleryItem)
     const addLike = () => {
+        axios.put(`/gallery/${galleryItem.id}`)
+        .then((response) => {
+            console.log('Llike added: ', galleryItem.id);
+            fetchImages();
+        })
+        .catch((error) => {
+            console.log('Error in DELETE/ students', error)
+        })
     }
 
     // toggles between the image and the description
