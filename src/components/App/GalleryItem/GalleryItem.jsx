@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-function GalleryItem({ galleryItem, addLike }) {
+function GalleryItem({ galleryItem, addLike, deleteImage }) {
     // console.log('galleryItem in GalleryItem', galleryItem)
 
 
@@ -20,6 +20,9 @@ function GalleryItem({ galleryItem, addLike }) {
             <div>
                 <button onClick={() => addLike(galleryItem)}>Like</button>
                 <span>likes: {galleryItem.likes}</span>
+            </div>
+            <div>
+                <button onClick={() => deleteImage(galleryItem)}>Remove Image</button>
             </div>
         </>
     )
