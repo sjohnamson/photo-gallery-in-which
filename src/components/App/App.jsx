@@ -58,15 +58,31 @@ function App() {
       })
   }
 
+  // deleteImage takes in the galleryItem created in GalleryItem and removes it from the database
+  const deleteImage = (galleryItem) => {
+    console.log('Image to delete: ', galleryItem)
+    axios
+      .delete(`/gallery/delete/${galleryItem.id}`)
+      .then((response) => {
+        console.log('Deleted: ', galleryItem.id);
+        fetchImages();
+      })
+      .catch((error) => {
+        console.log('Error in DELETE/ gallery', error);
+      })
+  }
+
   return (
     <div className="App">
       <header className="App-header">
         <h1 className="App-title">Gallery of My Life</h1>
       </header>
-      <AddImageForm addNewImage={addNewImage}/>
+      <AddImageForm addNewImage={addNewImage} />
       <GalleryList
         imageGallery={imageGallery}
-        addLike={addLike} />
+        addLike={addLike}
+        deleteImage={deleteImage}
+      />
     </div>
   );
 }
