@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 function GalleryItem({ galleryItem, addLike }) {
-    console.log('galleryItem in GalleryItem', galleryItem)
+    // console.log('galleryItem in GalleryItem', galleryItem)
 
 
     // toggles between the image and the description

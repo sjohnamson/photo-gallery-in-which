@@ -4,6 +4,7 @@ import './App.css';
 import axios from 'axios';
 
 import GalleryList from './GalleryList/GalleryList';
+import AddImageForm from './AddImageForm/AddImageForm';
 
 
 function App() {
@@ -11,31 +12,49 @@ function App() {
   useEffect(() => {
     fetchImages();
   }, [])
+
   // imageGallery is an array with all the images
   let [imageGallery, setImageGallery] = useState();
 
   // GET images from the database and set them into imageGallery array
   const fetchImages = () => {
-    axios.get(`/gallery`)
+    axios
+      .get(`/gallery`)
       .then((response) => {
         setImageGallery(response.data)
-        console.log("ImageGallery: ", response.data)
+        // console.log("ImageGallery: ", response.data)
       })
       .catch((error) => {
         console.log('Error in GET/ gallery', error)
       })
   }
 
-  const addLike = (galleryItem) => {
-    console.log('likedImage: ', galleryItem)
+  // add image takes in the newImage object created in the AddImageForm component
+  const addNewImage = (newImage, clearInputs) => {
+    console.log('new image in app post', newImage)
+    axios
+      .post('/gallery', newImage)
+      .then((response) => {
+        clearInputs();
+        fetchImages();
+      })
+      .catch((error) => {
+        alert(`Couldn't add new image to the gallery. Try again later`);
+        console.log('Error adding image', error);
+      });
+  }
 
-    axios.put(`/gallery/like/${galleryItem.id}`, {likes: galleryItem})
+  // addLike takes in the galleryItem created in GalleryItem component
+  const addLike = (galleryItem) => {
+    // console.log('likedImage: ', galleryItem)
+    axios
+      .put(`/gallery/like/${galleryItem.id}`)
       .then((response) => {
         console.log('Like added: ', galleryItem.id);
         fetchImages();
       })
       .catch((error) => {
-        console.log('Error in PUT/ gallery', error)
+        console.log('Error in PUT/ gallery', error);
       })
   }
 
@@ -44,8 +63,9 @@ function App() {
       <header className="App-header">
         <h1 className="App-title">Gallery of My Life</h1>
       </header>
+      <AddImageForm addNewImage={addNewImage}/>
       <GalleryList
-        imageGallery={imageGallery} 
+        imageGallery={imageGallery}
         addLike={addLike} />
     </div>
   );
