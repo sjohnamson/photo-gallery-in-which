@@ -7,7 +7,9 @@ function GalleryList({ imageGallery }) {
         <div>
             {/* loops over the imageGallery and turns each into a galleryItem */}
             {imageGallery?.map((image) => (
-                <GalleryItem galleryItem={image} />
+                <GalleryItem 
+                key={image.id}
+                galleryItem={image} />
             ))}
         </div>
     )
