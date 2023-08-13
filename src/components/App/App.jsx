@@ -85,7 +85,7 @@ function App() {
       <Grid >
     <div className="App">
       <header className="App-header">
-        <h1 className="App-title">Image Gallery</h1>
+        <h1 className="App-title">In Which _______ and Others Discover the End Book Drawing Gallery</h1>
       </header>
       <AddImageForm addNewImage={addNewImage} />
       
