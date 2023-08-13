@@ -1,5 +1,8 @@
 import { useState } from "react"
 import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import { Box } from "@mui/material";
+
 
 
 function AddImageForm({ addNewImage }) {
@@ -28,24 +31,34 @@ function AddImageForm({ addNewImage }) {
 
     return (
         // form to add a new image
-        <form onSubmit={handleSubmit}>
-            <label>Description:</label>
-            <input
-                type='text'
-                name='description'
-                value={newImageDescription}
-                onChange={(event) => setNewImageDescription(event.target.value)}
-            />
-
-            <label>URL:</label>
-            <input
-                type='text'
-                name='URL'
+        <Box
+        component="form"
+         onSubmit={handleSubmit} 
+         padding={3}
+         >
+            <TextField
+            sx={{marginRight: 1}}
+                label="image "
+                variant="outlined"
+                color="success"
+                type="text"
+                size="small"
                 value={newImagePath}
                 onChange={(event) => setNewImagePath(event.target.value)}
             />
-            <Button type='submit' variant="contained" color="success">Add Item</Button>
-        </form>
+            <TextField
+            sx={{marginRight: 1}}
+                label="image description"
+                variant="outlined"
+                color="success"
+                type="text"
+                size="small"
+                multiline
+                value={newImageDescription}
+                onChange={(event) => setNewImageDescription(event.target.value)}
+            />
+            <Button type='submit' variant="contained" color="success">Add Image</Button>
+        </Box>
     )
 }
 
