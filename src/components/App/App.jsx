@@ -2,9 +2,17 @@ import { useState, useEffect } from 'react';
 import React from 'react';
 import './App.css';
 import axios from 'axios';
+import Grid from '@mui/material/Unstable_Grid2';
+import Box from '@mui/material/Box';
+
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
 
 import GalleryList from './GalleryList/GalleryList';
 import AddImageForm from './AddImageForm/AddImageForm';
+
 
 
 function App() {
@@ -73,17 +81,27 @@ function App() {
   }
 
   return (
+    <Box sx={{ flexGrow: 1 }}>
+      <Grid >
     <div className="App">
       <header className="App-header">
-        <h1 className="App-title">Gallery of My Life</h1>
+        <h1 className="App-title">Image Gallery</h1>
       </header>
       <AddImageForm addNewImage={addNewImage} />
-      <GalleryList
-        imageGallery={imageGallery}
-        addLike={addLike}
-        deleteImage={deleteImage}
-      />
-    </div>
+      
+        <Grid container spacing={2} alignItems="center"
+  justifyContent="center">
+        <GalleryList
+          imageGallery={imageGallery}
+          addLike={addLike}
+          deleteImage={deleteImage}
+        />
+        </Grid>
+        </div>
+      </Grid>
+      
+      </Box>
+
   );
 }
 
