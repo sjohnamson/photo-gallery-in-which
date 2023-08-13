@@ -10,7 +10,7 @@ function AddImageForm({ addNewImage }) {
     // on submit click package state variables and call function for POST on app.jsx
     const handleSubmit = (event) => {
         event.preventDefault();
-console.log(newImageDescription, newImagePath);
+        // console.log(newImageDescription, newImagePath);
         // make an object with the new image state variables
         const newImage = {
             description: newImageDescription,

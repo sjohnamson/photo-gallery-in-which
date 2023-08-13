@@ -41,7 +41,7 @@ function GalleryItem({ galleryItem, addLike, deleteImage }) {
             </CardActionArea>
             <CardActions>
                 <Button onClick={() => addLike(galleryItem)} variant="text" color="secondary" size="small" padding="5px">Like</Button>
-                <Typography>{galleryItem.likes} Likes</Typography>          
+                <Typography variant="button">{galleryItem.likes} Likes</Typography>          
                 <Button onClick={() => deleteImage(galleryItem)} color="error" startIcon={<DeleteIcon />} size="small" >Remove</Button>
             </CardActions>
 

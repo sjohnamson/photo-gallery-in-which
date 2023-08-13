@@ -2,6 +2,10 @@ import { useState, useEffect } from 'react';
 import React from 'react';
 import './App.css';
 import axios from 'axios';
+import { styled } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Unstable_Grid2';
 
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
@@ -10,6 +14,7 @@ import '@fontsource/roboto/700.css';
 
 import GalleryList from './GalleryList/GalleryList';
 import AddImageForm from './AddImageForm/AddImageForm';
+
 
 
 function App() {
@@ -83,11 +88,15 @@ function App() {
         <h1 className="App-title">Gallery of My Life</h1>
       </header>
       <AddImageForm addNewImage={addNewImage} />
-      <GalleryList
-        imageGallery={imageGallery}
-        addLike={addLike}
-        deleteImage={deleteImage}
-      />
+        <Grid container spacing={2}>
+         
+              <GalleryList
+                imageGallery={imageGallery}
+                addLike={addLike}
+                deleteImage={deleteImage}
+              />
+
+        </Grid>
     </div>
   );
 }
