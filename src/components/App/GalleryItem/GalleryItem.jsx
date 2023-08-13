@@ -22,13 +22,13 @@ function GalleryItem({ galleryItem, addLike, deleteImage }) {
             backgroundColor: '#000'
         }}
         >
-            <CardActionArea sx={{ height: 245, width: 245 }}>
+            <CardActionArea sx={{ height: 350, width: 245 }}>
                 <div onClick={() => {
                     setItemDisplay(!itemDisplay)
                 }}>
                     {itemDisplay ?
                         <CardMedia
-                            sx={{ height: 245 }}
+                            sx={{ height: 350 }}
                             image={galleryItem.path}
                             title="Goat"
                         />
