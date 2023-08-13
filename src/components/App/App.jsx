@@ -83,24 +83,28 @@ function App() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid >
-    <div className="App">
-      <header className="App-header">
-        <h1 className="App-title">In Which _______ and Others Discover the End Book Drawing Gallery</h1>
-      </header>
-      <AddImageForm addNewImage={addNewImage} />
-      
-        <Grid container spacing={2} alignItems="center"
-  justifyContent="center">
-        <GalleryList
-          imageGallery={imageGallery}
-          addLike={addLike}
-          deleteImage={deleteImage}
-        />
-        </Grid>
+        <div className="App">
+          <header className="App-header">
+            <h1 className="App-title">In Which _______ and Others Discover the End Book Drawing Gallery</h1>
+          </header>
+          <AddImageForm addNewImage={addNewImage} />
+
+          <Grid
+            container spacing={2}
+            alignItems="center"
+            justifyContent="center"
+
+          >
+            <GalleryList
+              imageGallery={imageGallery}
+              addLike={addLike}
+              deleteImage={deleteImage}
+            />
+          </Grid>
         </div>
       </Grid>
-      
-      </Box>
+
+    </Box>
 
   );
 }

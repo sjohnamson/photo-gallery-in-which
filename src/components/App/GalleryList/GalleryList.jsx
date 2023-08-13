@@ -15,10 +15,15 @@ const Item = styled(Paper)(({ theme }) => ({
 function GalleryList({ imageGallery, addLike, deleteImage }) {
 
     return (
-        <>
+        <Grid
+        container spacing={2}
+            alignItems="center"
+            justifyContent="center"
+            xs={10}
+            >
             {/* loops over the imageGallery and turns each into a galleryItem */}
             {imageGallery?.map((image) => (
-                <Grid itemxs={4} key={image.id}>
+                // <Grid itemxs={4} key={image.id}>
                     <Item><GalleryItem
                         key={image.id}
                         galleryItem={image}
@@ -26,9 +31,9 @@ function GalleryList({ imageGallery, addLike, deleteImage }) {
                         deleteImage={deleteImage}
                     />
                     </Item>
-                </Grid>
+                // </Grid>
             ))}
-        </>
+        </Grid>
     )
 }
 
