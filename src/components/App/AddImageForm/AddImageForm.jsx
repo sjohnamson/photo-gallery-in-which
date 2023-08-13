@@ -1,4 +1,6 @@
 import { useState } from "react"
+import Button from '@mui/material/Button';
+
 
 function AddImageForm({ addNewImage }) {
     // state variables that relate to the input fields of the form
@@ -42,7 +44,7 @@ console.log(newImageDescription, newImagePath);
                 value={newImagePath}
                 onChange={(event) => setNewImagePath(event.target.value)}
             />
-            <button type='submit'>Add Item</button>
+            <Button type='submit' variant="contained" color="success">Add Item</Button>
         </form>
     )
 }
