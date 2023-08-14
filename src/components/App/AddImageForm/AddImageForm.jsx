@@ -10,6 +10,7 @@ function AddImageForm({ addNewImage }) {
     // state variables that relate to the input fields of the form
     let [newImageDescription, setNewImageDescription] = useState('');
     let [newImagePath, setNewImagePath] = useState('');
+    let [newImageTitle, setNewImageTitle] = useState('');;
 
     // on submit click package state variables and call function for POST on app.jsx
     const handleSubmit = (event) => {
@@ -28,6 +29,7 @@ function AddImageForm({ addNewImage }) {
     const clearInputs = () => {
         setNewImageDescription('');
         setNewImagePath('');
+        setNewImageTitle('');
     }
 
     return (
@@ -45,9 +47,20 @@ function AddImageForm({ addNewImage }) {
             xs={12}
             border={2}
             padding={2}>
+                 <TextField
+                    sx={{ marginRight: 1 }}
+                    label="image name"
+                    variant="outlined"
+                    color="success"
+                    type="text"
+                    size="small"
+                    multiline
+                    value={newImageTitle}
+                    onChange={(event) => setNewImageTitle(event.target.value)}
+                />
                 <TextField
                     sx={{ marginRight: 1 }}
-                    label="image "
+                    label="image path"
                     variant="outlined"
                     color="success"
                     type="text"

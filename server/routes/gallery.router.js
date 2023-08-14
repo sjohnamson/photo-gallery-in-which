@@ -20,11 +20,11 @@ router
 // POST Route
 router
     .post('/', (req, res) => {
-        const [path, description] = [req.body.path, req.body.description];
-        const sqlText = `INSERT INTO images ("path", "description") VALUES ($1, $2);`
+        const [title, path, description] = [req.body.title, req.body.path, req.body.description];
+        const sqlText = `INSERT INTO images ("title", "path", "description") VALUES ($1, $2, $3);`
 
         pool
-            .query(sqlText, [path, description])
+            .query(sqlText, [title, path, description])
             .then((result) => {
                 res.sendStatus(201);
             })

@@ -13,13 +13,14 @@ import Typography from '@mui/material/Typography';
 function GalleryItem({ galleryItem, addLike, deleteImage }) {
     // console.log('galleryItem in GalleryItem', galleryItem)
     // toggles between the image and the description
-    
+
     const [itemDisplay, setItemDisplay] = useState(true)
 
     return (
         <Card sx={{
-            backgroundColor: '#000'
+            backgroundColor: '#000',
         }}
+       
         >
             {/* delineates where you can click to toggle */}
             <CardActionArea sx={{ height: 350, width: 245 }}>
@@ -30,6 +31,7 @@ function GalleryItem({ galleryItem, addLike, deleteImage }) {
                         <CardMedia
                             sx={{ height: 350 }}
                             image={galleryItem.path}
+                            title={galleryItem.title}
                         />
                         :
                         <CardContent>
