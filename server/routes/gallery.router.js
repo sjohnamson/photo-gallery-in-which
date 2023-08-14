@@ -40,7 +40,6 @@ router
         let imageId = req.params.id;
         let sqlText = `UPDATE images SET likes=likes + 1 WHERE id=$1;`
 
-
         pool.query(sqlText, [imageId])
             .then((result) => {
                 res.sendStatus(200)
@@ -57,7 +56,6 @@ router
         console.log('req.params.id in delete: ', req.params.id);
         let imageId = req.params.id;
         let sqlText = `DELETE FROM images WHERE id=$1;`
-
 
         pool.query(sqlText, [imageId])
             .then((result) => {

@@ -2,6 +2,7 @@ import { useState } from "react"
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { Box } from "@mui/material";
+import Grid from '@mui/material/Unstable_Grid2';
 
 
 
@@ -32,32 +33,41 @@ function AddImageForm({ addNewImage }) {
     return (
         // form to add a new image
         <Box
-        component="form"
-         onSubmit={handleSubmit} 
-         padding={3}
-         >
-            <TextField
-            sx={{marginRight: 1}}
-                label="image "
-                variant="outlined"
-                color="success"
-                type="text"
-                size="small"
-                value={newImagePath}
-                onChange={(event) => setNewImagePath(event.target.value)}
-            />
-            <TextField
-            sx={{marginRight: 1}}
-                label="image description"
-                variant="outlined"
-                color="success"
-                type="text"
-                size="small"
-                multiline
-                value={newImageDescription}
-                onChange={(event) => setNewImageDescription(event.target.value)}
-            />
-            <Button type='submit' variant="contained" color="success">Add Image</Button>
+            component="form"
+            onSubmit={handleSubmit}
+            paddingBottom={2}
+            margin={2}
+        >
+            <Grid 
+            container 
+            alignItems="center"
+            justifyContent="center"
+            xs={12}
+            border={2}
+            padding={2}>
+                <TextField
+                    sx={{ marginRight: 1 }}
+                    label="image "
+                    variant="outlined"
+                    color="success"
+                    type="text"
+                    size="small"
+                    value={newImagePath}
+                    onChange={(event) => setNewImagePath(event.target.value)}
+                />
+                <TextField
+                    sx={{ marginRight: 1 }}
+                    label="image description"
+                    variant="outlined"
+                    color="success"
+                    type="text"
+                    size="small"
+                    multiline
+                    value={newImageDescription}
+                    onChange={(event) => setNewImageDescription(event.target.value)}
+                />
+                <Button type='submit' variant="contained" color="success">Add Image</Button>
+            </Grid>
         </Box>
     )
 }

@@ -16,7 +16,7 @@ import AddImageForm from './AddImageForm/AddImageForm';
 
 
 function App() {
-  // renders images when the page loads
+  // renders image gallery when the page loads
   useEffect(() => {
     fetchImages();
   }, [])
@@ -85,15 +85,20 @@ function App() {
       <Grid >
         <div className="App">
           <header className="App-header">
-            <h1 className="App-title">In Which _______ and Others Discover the End Book Drawing Gallery</h1>
+            <h1 className="App-title">In Which _______ and Others Discover the End <br/> Drawing Gallery</h1>
           </header>
-          <AddImageForm addNewImage={addNewImage} />
-
           <Grid
-            container spacing={2}
+            container
             alignItems="center"
             justifyContent="center"
+          >
+            <AddImageForm addNewImage={addNewImage} />
+          </Grid>
 
+          <Grid
+            container 
+            alignItems="center"
+            justifyContent="center"
           >
             <GalleryList
               imageGallery={imageGallery}
@@ -103,9 +108,7 @@ function App() {
           </Grid>
         </div>
       </Grid>
-
     </Box>
-
   );
 }
 
