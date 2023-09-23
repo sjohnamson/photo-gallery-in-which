@@ -14,10 +14,11 @@
     "pg": "^8.11.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "^5.0.1"
+    "react-scripts": "^5.0.1",
+    "react-webcam": "^7.1.1"
   },
   "devDependencies": {
-    "nodemon": "^1.18.4"
+    "nodemon": "^1.19.4"
   },
   "scripts": {
     "start": "react-scripts build && node server/server.js",
@@ -25,6 +26,7 @@
     "server": "nodemon  --watch server server/server.js",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+    
   },
   "browserslist": {
     "production": [

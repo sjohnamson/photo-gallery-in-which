@@ -55,7 +55,7 @@ function GalleryItem({ galleryItem, addLike, deleteImage }) {
                     <ThumbUpIcon />
                 </IconButton>
                 {/* delete image button */}
-                <IconButton onClick={() => deleteImage(galleryItem)} color="error" size="small" >
+                <IconButton onClick={() => deleteImage(galleryItem)} color="error" size="small" sx={{paddingLeft: 10}} >
                     <DeleteIcon />
                 </IconButton>
             </CardActions>

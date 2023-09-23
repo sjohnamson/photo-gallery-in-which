@@ -15,12 +15,7 @@ const Item = styled(Paper)(({ theme }) => ({
 // creates the gallery list item that will be inserted into the grid in app.js
 function GalleryList({ imageGallery, addLike, deleteImage }) {
     return (
-        <Grid
-            container
-            alignItems="center"
-            justifyContent="center"
-            xs={10}
-        >
+       <>
             {/* loops over the imageGallery and turns each into a galleryItem */}
             {imageGallery?.map((image) => (
                 <Item key={image.id}>
@@ -32,7 +27,7 @@ function GalleryList({ imageGallery, addLike, deleteImage }) {
                     />
                 </Item>
             ))}
-        </Grid>
+       </>
     )
 }
 
