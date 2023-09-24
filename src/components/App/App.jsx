@@ -10,8 +10,8 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
-import GalleryList from './GalleryList/GalleryList';
-import AddImageForm from './AddImageForm/AddImageForm';
+import GalleryList from '../GalleryList/GalleryList';
+import AddImageForm from '../AddImageForm/AddImageForm';
 import WebcamPage from '../WebcamPage/WebcamPage';
 
 
@@ -82,44 +82,49 @@ function App() {
   }
 
   return (
-    <Box sx={{ flexGrow: 1, width: '80%', m: 'auto'}}>
+    <Box sx={{ flexGrow: 1, width: '80%', m: 'auto' }}>
       <Grid container >
         <Grid item
-        md={12}>
+          md={12}>
           <header className="App-header">
             <h1 className="App-title">Image Gallery</h1>
           </header>
-          </Grid>
-         
-          
-          <Grid item
-            container
-            alignItems="center"
-            justifyContent="center"
-          >
-            {/* form to add new images with url */}
-            <AddImageForm addNewImage={addNewImage} />
-          </Grid>
-          <Grid item
-          md={4}
-          >
-            {/* webcam so you can take and add pictures from your device */}
-            <WebcamPage />
-          </Grid>
+        </Grid>
 
-          <Grid item
+
+        <Grid item
+          container
+          alignItems="center"
+          justifyContent="center"
+        >
+          {/* form to add new images with url */}
+          <AddImageForm addNewImage={addNewImage} />
+        </Grid>
+        <Grid item
+          md={4}
+        >
+          {/* webcam so you can take and add pictures from your device */}
+          <WebcamPage
+            imageGallery={imageGallery}
+            addLike={addLike}
+            deleteImage={deleteImage} 
+            fetchImages={fetchImages}
+            />
+        </Grid>
+
+        {/* <Grid item
             container 
             alignItems="center"
             justifyContent="center"
-          >
-            {/* images that get mapped through and added */}
-            <GalleryList
+          > */}
+        {/* images that get mapped through and added */}
+        {/* <GalleryList
               imageGallery={imageGallery}
               addLike={addLike}
               deleteImage={deleteImage}
             />
-          </Grid>
-     
+          </Grid> */}
+
       </Grid>
     </Box>
   );

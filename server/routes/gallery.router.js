@@ -33,6 +33,22 @@ router
             })
     }); // END POST Route
 
+    router
+    .post('/webcam', (req, res) => {
+        console.log('body in route', req.body)
+        const url = req.body.url;
+        const sqlText = `INSERT INTO images ("path") VALUES ($1);`
+
+        pool
+            .query(sqlText, [url])
+            .then((result) => {
+                res.sendStatus(201);
+            })
+            .catch((error) => {
+                res.sendStatus(500);
+            })
+    }); // END POST Route
+
 // PUT Route
 router
     .put('/like/:id', (req, res) => {
