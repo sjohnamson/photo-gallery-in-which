@@ -83,7 +83,10 @@ function App() {
 
   return (
     <Box sx={{ flexGrow: 1, width: '80%', m: 'auto' }}>
-      <Grid container >
+      <Grid 
+      container 
+      spacing={2}
+      >
         <Grid item
           md={12}>
           <header className="App-header">
@@ -93,16 +96,13 @@ function App() {
 
 
         <Grid item
-          container
           alignItems="center"
           justifyContent="center"
         >
           {/* form to add new images with url */}
           <AddImageForm addNewImage={addNewImage} />
         </Grid>
-        <Grid item
-          md={4}
-        >
+      
           {/* webcam so you can take and add pictures from your device */}
           <WebcamPage
             imageGallery={imageGallery}
@@ -110,7 +110,7 @@ function App() {
             deleteImage={deleteImage} 
             fetchImages={fetchImages}
             />
-        </Grid>
+       
 
         {/* <Grid item
             container 

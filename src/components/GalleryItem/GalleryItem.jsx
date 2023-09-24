@@ -23,7 +23,7 @@ function GalleryItem({ galleryItem, addLike, deleteImage }) {
 
         >
             {/* delineates where you can click to toggle */}
-            <CardActionArea sx={{ height: 350, width: 245 }}>
+            <CardActionArea sx={{ height: 350}}>
                 <div onClick={() => {
                     setItemDisplay(!itemDisplay)
                 }}>

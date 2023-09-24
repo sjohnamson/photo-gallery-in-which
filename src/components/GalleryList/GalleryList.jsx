@@ -18,14 +18,18 @@ function GalleryList({ imageGallery, addLike, deleteImage }) {
        <>
             {/* loops over the imageGallery and turns each into a galleryItem */}
             {imageGallery?.map((image) => (
-                <Item key={image.id}>
+                <Grid 
+                Item 
+                key={image.id}
+                md={4}
+                >
                     <GalleryItem
                         key={image.id}
                         galleryItem={image}
                         addLike={addLike}
                         deleteImage={deleteImage}
                     />
-                </Item>
+                </Grid>
             ))}
        </>
     )

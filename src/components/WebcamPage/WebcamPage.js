@@ -60,7 +60,10 @@ export default function WebcamPage({ imageGallery, addLike, fetchImages }) {
 
   return (
     <>
-      <Grid item>
+      <Grid 
+      item
+      md={12}
+      >
         <Webcam
           audio={false}
           ref={webcamRef}
@@ -74,25 +77,20 @@ export default function WebcamPage({ imageGallery, addLike, fetchImages }) {
             src={photo}
           />
         )} */}
-      </Grid >
-      <Grid>
+
+
         <WebcamPreview
           fetchImages={fetchImages}
           url={prevURL}
         />
-      </Grid>
-      <Grid item
-        container
-        alignItems="center"
-        justifyContent="center"
-      >
+      </Grid >
         {/* images that get mapped through and added */}
         <GalleryList
           imageGallery={imageGallery}
           addLike={addLike}
           deleteImage={deleteImage}
         />
-      </Grid>
+    
     </>
   )
 }
